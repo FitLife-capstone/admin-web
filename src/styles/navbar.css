@@ -1,0 +1,27 @@
+.navbar {
+	background-color: #333; /* Background color of the navbar */
+	color: #fff; /* Text color */
+	padding: 15px; /* Padding around the content */
+
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+.nav-links {
+	display: flex;
+	justify-content: space-around;
+}
+
+.nav-links a {
+	text-decoration: none;
+	color: #fff;
+	padding: 8px 16px;
+	border-radius: 5px;
+	transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+	background-color: #555; /* Background color on hover */
+}

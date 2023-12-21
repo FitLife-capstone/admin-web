@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "../styles/home.css";
+import "../styles/login.css";
 import backendUrl from "../config/config";
 
 function Login() {

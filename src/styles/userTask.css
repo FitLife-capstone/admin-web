@@ -1,0 +1,77 @@
+.usertask-page {
+	padding: 80px 60px 60px 60px;
+}
+
+.user-tasks {
+	background-color: #fff;
+	padding: 30px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+table,
+th,
+td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+table {
+	width: 100%;
+	text-align: center;
+}
+
+th {
+	padding: 10px;
+	background-color: #333;
+	color: #fff;
+
+	text-transform: uppercase;
+}
+
+td {
+	padding: 10px;
+}
+.action-buttons {
+	display: flex;
+	gap: 10px;
+	justify-content: center;
+}
+
+.action-buttons .accept-button {
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	background-color: #73b543;
+	color: #fff;
+	cursor: pointer;
+}
+
+.action-buttons .accept-button:hover {
+	background-color: #5e9c3b;
+}
+
+.action-buttons .reject-button {
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	background-color: #d9534f;
+	color: #fff;
+	cursor: pointer;
+}
+
+.action-buttons .reject-button:hover {
+	background-color: #c9302c;
+}
+
+.no-pending {
+	text-align: left;
+	font-size: 1.5rem;
+	color: #333;
+
+	margin-top: 80px;
+}

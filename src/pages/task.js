@@ -3,6 +3,7 @@ import axios from "axios";
 import "../styles/task.css";
 import { getCookie } from "../utils/utils";
 import backendUrl from "../config/config";
+import Navbar from "../component/navbar";
 
 function Task() {
 	const [taskName, setTaskName] = useState("");
@@ -64,43 +65,67 @@ function Task() {
 	});
 
 	return (
-		<div className="task-page">
-			<h1>Create Task</h1>
-			<form onSubmit={handleSubmit}>
-				<input
-					type="text"
-					placeholder="Task Name"
-					value={taskName}
-					onChange={(e) => setTaskName(e.target.value)}
-				/>
-				<input
-					type="text"
-					placeholder="Task Description"
-					value={taskDesc}
-					onChange={(e) => setTaskDesc(e.target.value)}
-				/>
-				<input
-					type="number"
-					placeholder="Points"
-					value={points}
-					onChange={(e) => setPoints(e.target.value)}
-				/>
-				<input
-					type="date"
-					placeholder="Start Date"
-					value={startAt}
-					onChange={(e) => setStartAt(e.target.value)}
-				/>
-				<input
-					type="date"
-					placeholder="End Date"
-					value={endAt}
-					onChange={(e) => setEndAt(e.target.value)}
-				/>
-				<button type="submit">Create Task</button>
-			</form>
-			<p id="response-text"></p>
-		</div>
+		<>
+			<Navbar />
+			<div className="task-page">
+				<h1>Create Task</h1>
+
+				<form onSubmit={handleSubmit} className="form-container">
+					<div className="form-group">
+						<label htmlFor="taskName">Task Name:</label>
+						<input
+							type="text"
+							id="taskName"
+							placeholder="Task Name"
+							value={taskName}
+							onChange={(e) => setTaskName(e.target.value)}
+						/>
+					</div>
+					<div className="form-group">
+						<label htmlFor="taskDesc">Task Description:</label>
+						<input
+							type="text"
+							id="taskDesc"
+							placeholder="Task Description"
+							value={taskDesc}
+							onChange={(e) => setTaskDesc(e.target.value)}
+						/>
+					</div>
+					<div className="form-group">
+						<label htmlFor="points">Points:</label>
+						<input
+							type="number"
+							id="points"
+							placeholder="Points"
+							value={points}
+							onChange={(e) => setPoints(e.target.value)}
+						/>
+					</div>
+					<div className="form-group">
+						<label htmlFor="startAt">Start Date:</label>
+						<input
+							type="date"
+							id="startAt"
+							placeholder="Start Date"
+							value={startAt}
+							onChange={(e) => setStartAt(e.target.value)}
+						/>
+					</div>
+					<div className="form-group">
+						<label htmlFor="endAt">End Date:</label>
+						<input
+							type="date"
+							id="endAt"
+							placeholder="End Date"
+							value={endAt}
+							onChange={(e) => setEndAt(e.target.value)}
+						/>
+					</div>
+					<button type="submit">Create Task</button>
+				</form>
+				<p id="response-text"></p>
+			</div>
+		</>
 	);
 }
 
