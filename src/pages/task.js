@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../styles/task.css";
 import { getCookie } from "../utils/utils";
+import backendUrl from "../config/config";
 
 function Task() {
 	const [taskName, setTaskName] = useState("");
@@ -35,7 +36,7 @@ function Task() {
 
 		try {
 			const response = await axios.post(
-				"http://localhost:5000/task/create-task",
+				`${backendUrl}/task/create-task`,
 				taskData,
 				{
 					headers: {
@@ -46,7 +47,7 @@ function Task() {
 			);
 
 			if (response.status === 201) {
-				window.location.href = "/user-task";
+				window.location.href = "/task";
 			} else {
 				console.error("Error creating task");
 			}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../styles/home.css";
+import backendUrl from "../config/config";
 
 function Login() {
 	const [email, setEmail] = useState("");
@@ -11,7 +12,7 @@ function Login() {
 
 		if (email && password) {
 			try {
-				const response = await axios.post("http://localhost:5000/auth/login", {
+				const response = await axios.post(`${backendUrl}/auth/login`, {
 					email: email,
 					pass: password,
 				});

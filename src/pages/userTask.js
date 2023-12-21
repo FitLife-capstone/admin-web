@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/login.css";
 import { getCookie } from "../utils/utils";
+import backendUrl from "../config/config";
 
 function UserTask() {
 	const [userTasks, setUserTasks] = useState([]);
@@ -16,14 +17,11 @@ function UserTask() {
 
 	const fetchUserTasks = async (token) => {
 		try {
-			const response = await fetch(
-				"http://localhost:5000/user-task/user-task",
-				{
-					headers: {
-						Authorization: `Bearer ${token}`,
-					},
-				}
-			);
+			const response = await fetch(`${backendUrl}/user-task/user-task`, {
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			});
 			const data = await response.json();
 			if (data.error === false) {
 				setUserTasks(data.data);
@@ -38,7 +36,7 @@ function UserTask() {
 	const handleAccept = async (taskId, userID) => {
 		try {
 			const token = getCookie("token");
-			const acceptURL = `http://localhost:5000/user-task/accept-task/${userID}/${taskId}`;
+			const acceptURL = `${backendUrl}/user-task/accept-task/${userID}/${taskId}`;
 			const response = await fetch(acceptURL, {
 				method: "PUT",
 				headers: {
@@ -55,7 +53,7 @@ function UserTask() {
 	const handleReject = async (taskId, userID) => {
 		try {
 			const token = getCookie("token");
-			const rejectURL = `http://localhost:5000/user-task/reject-task/${userID}/${taskId}`;
+			const rejectURL = `${backendUrl}/user-task/reject-task/${userID}/${taskId}`;
 			const response = await fetch(rejectURL, {
 				method: "PUT",
 				headers: {
